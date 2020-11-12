@@ -1,0 +1,38 @@
+//layout
+html
+    head    
+        title My Site - #{title}
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/styles/custom.css")
+    body
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+            a.navbar-brand(href='/') Learn-NodeJS
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarNav.collapse.navbar-collapse
+                ul.navbar-nav
+                    li.nav-item
+                        a.nav-link(href='/') Home
+                    li.nav-item
+                        a.nav-link(href='/products') Product
+                    li.nav-item
+                        a.nav-link(href='/users') Users
+                    li.nav-item
+                        a.nav-link(href='/cart') Cart
+
+            if user
+                div(style='padding: 0px;')
+                  a(href='users/' + user.id, style='color: #007bff;font-size: 13px;padding: 7px 10px;')
+                    i.fa.fa-user(aria-hidden='true')  #{p= user.name}
+                  a.fa.fa-sign-out(aria-hidden='true', href='/auth/login', style='color: #007bff;font-size: 13px;padding: 7px 10px;')  &Dstrok;&abreve;ng xu&#x1EA5;t
+            else
+                div(style='padding: 0px;')
+                  a.fa.fa-unlock-alt.header-item(href='/auth/login', style='color: #007bff;font-size: 13px;padding: 7px 10px;')  &Dstrok;&abreve;ng Nh&#x1EAD;p
+                  |  |
+                  a.fa.fa-pencil-square-o.header-item(href='#', style='color: #007bff;font-size: 13px;padding: 7px 10px;')  &Dstrok;&abreve;ng K&yacute;
+
+
+
+
+        .container.pt-5
+            block content

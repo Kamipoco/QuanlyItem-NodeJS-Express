@@ -1,0 +1,26 @@
+extends ../layouts/common.pug
+
+block content
+    h1 
+        span.mr-3 Users 
+            a.btn.btn-primary(href="/users/create") Create
+    .d-flex.align-items-center
+
+        form.ml-auto(action="users/search", method="GET", class="d-flex")
+            input(type="text", name="q", class="form-control",value= keyword ? keyword : '')
+            button(class="btn btn-info ml-2") Search
+    table.table.table-striped.table-bordered
+        tr.table-primary
+            th Avatar
+            th Name
+            th Phone
+            th Actions
+
+        each user in users
+            tr.table
+                td
+                    img(src= user.avatar , width="62")
+                td= user.name
+                td= user.phone
+                td &nbsp
+                    a.btn.btn-light(href="/users/" + user.id) View
